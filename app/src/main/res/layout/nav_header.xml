@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="192dp"
+    android:background="@color/colorPrimary"
+    android:padding="16dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_above="@+id/tv_desc"
+        android:src="@drawable/avatar_round"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_above="@+id/tv_desc"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/iv_avatar"
+        android:gravity="center_vertical"
+        android:text="BoyGk"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="8dp"
+        android:text="first try android mvp as demo"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"/>
+</RelativeLayout>

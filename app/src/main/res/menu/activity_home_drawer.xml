@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_setting"
+        android:icon="@drawable/ic_build_black_24dp"
+        android:title="setting"/>
+
+    <item
+        android:id="@+id/action_theme"
+        android:icon="@drawable/ic_color_lens_black_24dp"
+        android:title="theme"/>
+</menu>

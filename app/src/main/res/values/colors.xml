@@ -6,4 +6,5 @@
 
     <color name="colorBackground">#EEEEEE</color>
     <color name="colorTheme">#05d3b7</color>
+    <color name="colorWhite">#FFFFFF</color>
 </resources>

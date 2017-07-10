@@ -85,7 +85,8 @@ public class LoginLeftFragment extends BaseFragment {
         L.i("...................");
         switch (view.getId()) {
             case R.id.login_SIgnIn:
-                doLogin();
+                //doLogin();
+                startActivity(new Intent(getActivity(), HomeActivity.class));
                 break;
             case R.id.login_SignUp:
                 doRegister();
