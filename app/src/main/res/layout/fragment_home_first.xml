@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</LinearLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/home_first_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:title="分类" />
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:scrollbars="none">
+
+        <GridLayout
+            android:id="@+id/home_first_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="3"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Vegetables"
+                android:text="蔬菜"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:transitionName="home2details" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Fruits"
+                android:text="水果"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:transitionName="home2details" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Wine"
+                android:text="酒水饮料"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:transitionName="home2details" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Tool"
+                android:text="工具"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:transitionName="home2details" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Snacks"
+                android:text="零食小吃"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:transitionName="home2details" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Necessaries"
+                android:text="油盐酱醋"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:transitionName="home2details" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                android:layout_rowWeight="1"
+                android:background="@color/Rice"
+                android:text="米面"
+                android:textColor="#ffffff"
+                android:textSize="22sp"
+                android:transitionName="home2details" />
+        </GridLayout>
+    </ScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/home_first_add"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="10dp"
+        android:src="@drawable/ic_add_circle_outline_black_24dp"
+        app:rippleColor="@color/colorPrimaryDark" />
+
+</FrameLayout>

@@ -7,4 +7,14 @@
     <color name="colorBackground">#EEEEEE</color>
     <color name="colorTheme">#05d3b7</color>
     <color name="colorWhite">#FFFFFF</color>
+
+
+    <color name="Vegetables">#28d06b</color>
+    <color name="Fruits">#fa5745</color>
+    <color name="Wine">#56a7fe</color>
+    <color name="Tool">#b7aaaa</color>
+    <color name="Snacks">#c7eb5c</color>
+    <color name="Necessaries">#be67fc</color>
+    <color name="Rice">#a7a7a7</color>
+
 </resources>

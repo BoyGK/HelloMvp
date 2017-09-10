@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context="com.gkpoter.hellomvp.activity.HomeFirstDetailsActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -12,16 +15,27 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/home_second_toolbar"
+            android:id="@+id/home_first_details_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways" />
     </android.support.design.widget.AppBarLayout>
 
-    <TextView
+    <Button
+        android:id="@+id/details_add"
         android:layout_width="match_parent"
-        android:text="2"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="添加"
+        android:textColor="@color/colorWhite"
+        android:background="@color/colorTheme"
+        android:transitionName="home2details" />
+
+    <ListView
+        android:id="@+id/details_list"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -1,7 +1,6 @@
 package com.gkpoter.hellomvp.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -76,7 +75,8 @@ public class HomeActivity extends BaseActivity {
 
         viewPager = (ViewPager) findViewById(R.id.home_viewPager);
         viewPager.setAdapter(adapter);
-        viewPager.setOnTouchListener(touchListener);
+        viewPager.setOnTouchListener(onTouchListener);
+        viewPager.setOffscreenPageLimit(2);
 
         BottomNavigationView bottom_nav = (BottomNavigationView) findViewById(R.id.home_bottom_select_menu);
         bottom_nav.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener);
@@ -84,7 +84,6 @@ public class HomeActivity extends BaseActivity {
 
     @Override
     public void doWidgetClick(View view) {
-
     }
 
     @Override
@@ -105,18 +104,29 @@ public class HomeActivity extends BaseActivity {
         }
     };
 
-    View.OnTouchListener touchListener = new View.OnTouchListener() {
-        @Override
-        public boolean onTouch(View v, MotionEvent event) {
-            return true;
-        }
-    };
-
     BottomNavigationView.OnNavigationItemSelectedListener onNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             viewPager.setCurrentItem(item.getGroupId());
+            switch (item.getItemId()) {
+                case R.id.home_first:
+                    viewPager.setCurrentItem(0);
+                    break;
+                case R.id.home_second:
+                    viewPager.setCurrentItem(1);
+                    break;
+                case R.id.home_third:
+                    viewPager.setCurrentItem(2);
+                    break;
+            }
+            return true;
+        }
+    };
+
+    View.OnTouchListener onTouchListener = new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
             return true;
         }
     };
