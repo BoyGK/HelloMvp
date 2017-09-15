@@ -15,11 +15,12 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
         <android.support.v7.widget.Toolbar
+            android:transitionName="history"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorTheme"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:title="历史" />
+            app:title="历史订单" />
     </android.support.design.widget.AppBarLayout>
 
     <ListView

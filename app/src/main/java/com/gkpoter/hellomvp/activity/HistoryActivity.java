@@ -1,5 +1,6 @@
 package com.gkpoter.hellomvp.activity;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,7 +58,8 @@ public class HistoryActivity extends BaseActivity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Intent intent = new Intent(getApplicationContext(), HistoryDetailsActivity.class);
             intent.putExtra("time", "2017/06/28");
-            startActivity(intent);
+            startActivity(intent, ActivityOptions
+                    .makeSceneTransitionAnimation(HistoryActivity.this, view, "").toBundle());
         }
     };
 }

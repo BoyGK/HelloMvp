@@ -1,5 +1,6 @@
 package com.gkpoter.hellomvp.fragment;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
@@ -54,7 +55,9 @@ public class HomeThirdFragment extends BaseFragment {
                 }
             }).show();
         } else {
-            startActivity(new Intent(mBaseActivity, HistoryActivity.class));
+            Intent intent = new Intent(mBaseActivity, HistoryActivity.class);
+            startActivity(intent, ActivityOptions
+                    .makeSceneTransitionAnimation(mBaseActivity, view, "history").toBundle());
         }
     }
 
