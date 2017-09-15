@@ -121,17 +121,17 @@ public class HomeFirstFragment extends BaseFragment implements View.OnTouchListe
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                v.setElevation(25);
-                break;
-            case MotionEvent.ACTION_UP:
-                v.setElevation(EV);
-                break;
-            default:
+//        switch (event.getAction()) {
+//            case MotionEvent.ACTION_DOWN:
+//                v.setElevation(25);
+//                break;
+//            case MotionEvent.ACTION_UP:
 //                v.setElevation(EV);
-                break;
-        }
+//                break;
+//            default:
+////                v.setElevation(EV);
+//                break;
+//        }
         return false;
     }
 

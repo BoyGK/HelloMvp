@@ -85,4 +85,8 @@ public class LoginActivity extends BaseActivity {
         }
     };
 
+    @Override
+    public void onBackPressed() {
+        FinishListActivity.getInstance().exit();
+    }
 }

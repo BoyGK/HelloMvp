@@ -4,10 +4,14 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="colorNull">#00ffffff</color>
+
     <color name="colorBackground">#EEEEEE</color>
     <color name="colorTheme">#05d3b7</color>
+    <color name="colorThemeDark">#06bca3</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorGray">#7e7e7e</color>
+    <color name="colorGraph">#788dff</color>
 
 
     <color name="Vegetables">#28d06b</color>
