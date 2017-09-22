@@ -11,7 +11,6 @@ import android.widget.ListView;
 import com.gkpoter.hellomvp.R;
 import com.gkpoter.hellomvp.adapter.ItemHistoryAdapter;
 import com.gkpoter.hellomvp.base.BaseActivity;
-import com.gkpoter.hellomvp.bean.HistoryBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,15 +19,19 @@ public class HistoryActivity extends BaseActivity {
 
     private ListView listView;
     private ItemHistoryAdapter adapter;
-    private List<HistoryBean> dates;
+    private List<String> dates;
 
     @Override
     public void initData(Bundle bundle) {
         dates = new ArrayList<>();
         for (int k = 0; k < 15; k++) {
-            dates.add(new HistoryBean("2017/06/28" + k));
+            dates.add("2017/06/28");
         }
-        adapter = new ItemHistoryAdapter(getApplicationContext(), dates);
+        String[] str = new String[dates.size()];
+        for (int i = 0, len = dates.size(); i < len; i++) {
+            str[i] = dates.get(i);
+        }
+        adapter = new ItemHistoryAdapter(getApplicationContext(), str);
     }
 
     @Override
@@ -49,8 +52,37 @@ public class HistoryActivity extends BaseActivity {
     }
 
     @Override
-    public void doBusiness(Context context) {
-
+    public void doBusiness(final Context context) {
+//        DataUtils dataUtils = new DataUtils("user", context);
+//        HashMap<String, String> map = new HashMap<>();
+//        map.put("username", dataUtils.getData("username", ""));
+//        HttpUtils.Get("getorder", map, new MyCallBack<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                OrderTimes re = new Gson().fromJson(result, OrderTimes.class);
+//                if (re.getState() != 0) {
+//                    adapter = new ItemHistoryAdapter(context, re.getTime());
+//                    listView.setAdapter(adapter);
+//                } else {
+//                    Toast.makeText(context, re.getMsg() + "", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
     }
 
     AdapterView.OnItemClickListener listener = new AdapterView.OnItemClickListener() {

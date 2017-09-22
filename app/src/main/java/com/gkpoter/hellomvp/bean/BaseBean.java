@@ -5,15 +5,15 @@ package com.gkpoter.hellomvp.bean;
  */
 
 public class BaseBean {
-    private int ret;
+    private int state;
     private String msg;
 
-    public int getRet() {
-        return ret;
+    public int getState() {
+        return state;
     }
 
-    public void setRet(int ret) {
-        this.ret = ret;
+    public void setState(int ret) {
+        this.state = ret;
     }
 
     public String getMsg() {

@@ -5,13 +5,20 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import com.gkpoter.hellomvp.R;
 import com.gkpoter.hellomvp.adapter.ItemOrderAdapter;
 import com.gkpoter.hellomvp.base.BaseActivity;
+import com.gkpoter.hellomvp.bean.ItemOrder;
 import com.gkpoter.hellomvp.bean.ItemOrderBean;
+import com.gkpoter.hellomvp.interface_.MyCallBack;
+import com.gkpoter.hellomvp.util.DataUtils;
+import com.gkpoter.hellomvp.util.HttpUtils;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -23,6 +30,8 @@ public class HistoryDetailsActivity extends BaseActivity {
     private ExpandableListView listView;
     private ItemOrderAdapter adapter;
     private List<ItemOrderBean> dates;
+
+    private String time;
 
     @Override
     public void initData(Bundle bundle) {
@@ -46,7 +55,8 @@ public class HistoryDetailsActivity extends BaseActivity {
     @Override
     public void initView(Bundle bundle, View view) {
         Toolbar toolbar = (Toolbar) findViewById(R.id.history_details);
-        toolbar.setTitle(getIntent().getStringExtra("time"));
+        time = getIntent().getStringExtra("time");
+        toolbar.setTitle(time);
         setSupportActionBar(toolbar);
         listView = (ExpandableListView) view.findViewById(R.id.history_item_list);
         listView.setGroupIndicator(null);
@@ -59,7 +69,37 @@ public class HistoryDetailsActivity extends BaseActivity {
     }
 
     @Override
-    public void doBusiness(Context context) {
-
+    public void doBusiness(final Context context) {
+//        DataUtils dataUtils = new DataUtils("user", context);
+//        HashMap<String, String> map = new HashMap<>();
+//        map.put("username", dataUtils.getData("username", ""));
+//        map.put("time", time);
+//        HttpUtils.Get("gethistorydetails", map, new MyCallBack<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                ItemOrder re = new Gson().fromJson(result, ItemOrder.class);
+//                if (re.getState() == 1) {
+//                    adapter = new ItemOrderAdapter(dates, context);
+//                    listView.setAdapter(adapter);
+//                } else {
+//                    Toast.makeText(context, re.getMsg() + "", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
     }
 }

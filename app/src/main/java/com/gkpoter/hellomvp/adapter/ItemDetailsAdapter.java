@@ -56,13 +56,15 @@ public class ItemDetailsAdapter extends BaseAdapter {
              */
             viewHolder.text1 = (TextView) convertView.findViewById(R.id.item_text1);
             viewHolder.text2 = (TextView) convertView.findViewById(R.id.item_text2);
+            viewHolder.text3 = (TextView) convertView.findViewById(R.id.unit);
             convertView.setTag(viewHolder);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.text1.setText(texts.get(position).getText1());
-        viewHolder.text2.setText(texts.get(position).getText2());
+        viewHolder.text1.setText("物品:" + texts.get(position).getName());
+        viewHolder.text2.setText("单价:" + texts.get(position).getPrice().toString());
+        viewHolder.text3.setText(" " + texts.get(position).getUnit());
 
         return convertView;
     }
@@ -70,5 +72,6 @@ public class ItemDetailsAdapter extends BaseAdapter {
     private class ViewHolder{
         public TextView text1;
         public TextView text2;
+        public TextView text3;
     }
 }

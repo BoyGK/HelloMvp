@@ -12,10 +12,10 @@ import com.gkpoter.hellomvp.R;
 import com.gkpoter.hellomvp.activity.HomeActivity;
 import com.gkpoter.hellomvp.activity.RegisterActivity;
 import com.gkpoter.hellomvp.base.BaseFragment;
+import com.gkpoter.hellomvp.bean.BaseBean;
 import com.gkpoter.hellomvp.bean.UserBean;
 import com.gkpoter.hellomvp.interface_.MyCallBack;
 import com.gkpoter.hellomvp.util.DataUtils;
-import com.gkpoter.hellomvp.util.FinishListActivity;
 import com.gkpoter.hellomvp.util.HttpUtils;
 import com.gkpoter.hellomvp.util.L;
 import com.google.gson.Gson;
@@ -39,16 +39,11 @@ public class LoginLeftFragment extends BaseFragment {
     private LoginCall call = new LoginCall() {
         @Override
         public void success(UserBean user) {
-            L.i(user.getData().getAk());
-            DataUtils util = new DataUtils("userbean", getActivity());
+            DataUtils util = new DataUtils("user", getActivity());
             util.clearData();
-            util.saveData("username", user.getData().getUsername());
-            util.saveData("phone", user.getData().getPhone());
-            util.saveData("password", user.getData().getUsername());
-            util.saveData("ak", user.getData().getAk());
-            util.saveData("userPhoto", user.getData().getUserPhoto());
+            util.saveData("username", user.getUsername());
+            util.saveData("password", user.getUsername());
             startActivity(new Intent(getActivity(), HomeActivity.class));
-            //getActivity().finish();
         }
 
         @Override
@@ -82,7 +77,6 @@ public class LoginLeftFragment extends BaseFragment {
 
     @Override
     public void doWidgetClick(View view) {
-        L.i("...................");
         switch (view.getId()) {
             case R.id.login_SIgnIn:
                 //doLogin();
@@ -125,14 +119,15 @@ public class LoginLeftFragment extends BaseFragment {
         HashMap<String, Object> map = new HashMap<>();
         map.put("username", nameOrphone.getText().toString());
         map.put("password", password.getText().toString());
-        HttpUtils.Post("v1/market/login", map, new MyCallBack<String>() {
+        HttpUtils.Post("login", map, new MyCallBack<String>() {
             @Override
             public void onSuccess(String result) {
-                UserBean user = new Gson().fromJson(result, UserBean.class);
-                if (user != null && user.getRet() != 0) {
-                    call.error(user.getMsg());
+                BaseBean re = new Gson().fromJson(result, BaseBean.class);
+                if (re != null && re.getState() != 0) {
+                    call.success(new UserBean().setUsername(nameOrphone.getText().toString())
+                            .setPassword(password.getText().toString()));
                 } else {
-                    call.success(user);
+                    call.error(re.getMsg());
                 }
             }
 

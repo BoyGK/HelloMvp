@@ -6,24 +6,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridLayout;
-import android.widget.GridView;
+import android.widget.Toast;
 
 import com.gkpoter.hellomvp.R;
 import com.gkpoter.hellomvp.activity.HomeFirstDetailsActivity;
 import com.gkpoter.hellomvp.base.BaseFragment;
+import com.gkpoter.hellomvp.bean.BaseBean;
+import com.gkpoter.hellomvp.interface_.MyCallBack;
+import com.gkpoter.hellomvp.util.DataUtils;
+import com.gkpoter.hellomvp.util.HttpUtils;
+import com.google.gson.Gson;
 
-import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -72,8 +75,9 @@ public class HomeFirstFragment extends BaseFragment implements View.OnTouchListe
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            if (!"".equals(text.getText())) {
+                            if (!"".equals(text.getText().toString())) {
                                 addButton(text.getText().toString());
+//                                addClass(text.getText().toString());
                             }
                         }
                     })
@@ -86,6 +90,37 @@ public class HomeFirstFragment extends BaseFragment implements View.OnTouchListe
             startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(
                     mBaseActivity, view, "home2details").toBundle());
         }
+    }
+
+    private void addClass(String s) {
+        DataUtils dataUtils = new DataUtils("user", getContext());
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("username", dataUtils.getData("username", ""));
+        map.put("clazz", s);
+        HttpUtils.Post("addclass", map, new MyCallBack<String>() {
+            @Override
+            public void onSuccess(String result) {
+                BaseBean re = new Gson().fromJson(result, BaseBean.class);
+                if (re.getState() != 1) {
+                    Toast.makeText(mBaseActivity, re.getMsg() + "", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
     }
 
     private void addButton(String text) {
@@ -110,7 +145,38 @@ public class HomeFirstFragment extends BaseFragment implements View.OnTouchListe
 
     @Override
     public void doBusiness(Context context) {
-
+//        DataUtils dataUtils = new DataUtils("user", context);
+//        HashMap<String, String> map = new HashMap<>();
+//        map.put("username", dataUtils.getData("username", ""));
+//        HttpUtils.Get("getclass", map, new MyCallBack<String>() {
+//
+//            @Override
+//            public void onSuccess(String result) {
+//                Classify re = new Gson().fromJson(result, Classify.class);
+//                if (re.getState() != 0) {
+//                    for (String s : re.getData()) {
+//                        addButton(s);
+//                    }
+//                } else {
+//                    Toast.makeText(mBaseActivity, re.getMsg() + "", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
     }
 
 

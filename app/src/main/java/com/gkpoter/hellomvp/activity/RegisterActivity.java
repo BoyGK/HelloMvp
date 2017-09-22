@@ -106,7 +106,7 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public void onSuccess(String result) {
                 BaseBean bean = new Gson().fromJson(result, BaseBean.class);
-                if (bean != null && bean.getRet() == 0) {
+                if (bean != null && bean.getState() == 0) {
                     AlertDialog alertDialog = new AlertDialog.Builder(RegisterActivity.this)
                             .setTitle("提示")
                             .setMessage("发送成功")
@@ -176,12 +176,12 @@ public class RegisterActivity extends BaseActivity {
         HttpUtils.Post("v1/market/register_by_phone", map, new MyCallBack<String>() {
             @Override
             public void onSuccess(String result) {
-                UserBean user = new Gson().fromJson(result, UserBean.class);
-                if (user != null && user.getRet() != 0) {
-                    call.error(user.getMsg());
-                } else {
-                    call.success();
-                }
+//                UserBean user = new Gson().fromJson(result, UserBean.class);
+//                if (user != null && user.get() != 0) {
+//                    call.error(user.getMsg());
+//                } else {
+//                    call.success();
+//                }
             }
 
             @Override

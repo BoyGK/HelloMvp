@@ -38,12 +38,12 @@ public class LoginRightFragment extends BaseFragment {
         @Override
         public void success(UserBean user) {
             DataUtils util = new DataUtils("userbean", getActivity());
-            util.saveData("username", user.getData().getUsername());
-            util.saveData("phone", user.getData().getPhone());
-            util.saveData("password", user.getData().getUsername());
-            util.saveData("ak", user.getData().getAk());
-            util.saveData("userPhoto", user.getData().getUserPhoto());
-            startActivity(new Intent(getActivity(), HomeActivity.class));
+//            util.saveData("username", user.getData().getUsername());
+//            util.saveData("phone", user.getData().getPhone());
+//            util.saveData("password", user.getData().getUsername());
+//            util.saveData("ak", user.getData().getAk());
+//            util.saveData("userPhoto", user.getData().getUserPhoto());
+//            startActivity(new Intent(getActivity(), HomeActivity.class));
             //getActivity().finish();
         }
 
@@ -122,12 +122,12 @@ public class LoginRightFragment extends BaseFragment {
         HttpUtils.Post("v1/market/login_by_phone", map, new MyCallBack<String>() {
             @Override
             public void onSuccess(String result) {
-                UserBean user = new Gson().fromJson(result, UserBean.class);
-                if (user != null && user.getRet() != 0) {
-                    call.error(user.getMsg());
-                } else {
-                    call.success(user);
-                }
+//                UserBean user = new Gson().fromJson(result, UserBean.class);
+//                if (user != null && user.getRet() != 0) {
+//                    call.error(user.getMsg());
+//                } else {
+//                    call.success(user);
+//                }
             }
 
             @Override
@@ -164,7 +164,7 @@ public class LoginRightFragment extends BaseFragment {
             @Override
             public void onSuccess(String result) {
                 BaseBean bean = new Gson().fromJson(result, BaseBean.class);
-                if (bean != null && bean.getRet() == 0) {
+                if (bean != null && bean.getState() == 0) {
                     AlertDialog alertDialog = new AlertDialog.Builder(getActivity())
                             .setTitle("提示")
                             .setMessage("发送成功")

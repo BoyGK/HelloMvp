@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class HttpUtils {
 
-    private final static String URL = "http://123.207.166.190:8080/";
+    private final static String URL = "http://www.baiguoqing.com:8080/";
 
     /**
      * 发送get请求

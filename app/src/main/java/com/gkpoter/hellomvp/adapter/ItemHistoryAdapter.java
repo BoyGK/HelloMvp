@@ -19,21 +19,21 @@ import java.util.List;
 public class ItemHistoryAdapter extends BaseAdapter {
 
     private Context context;
-    private List<HistoryBean> dates;
+    private String[] dates;
 
-    public ItemHistoryAdapter(Context context, List<HistoryBean> datas) {
+    public ItemHistoryAdapter(Context context, String[] datas) {
         this.context = context;
         this.dates = datas;
     }
 
     @Override
     public int getCount() {
-        return dates.size();
+        return dates.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return dates.get(position);
+        return dates[position];
     }
 
     @Override
@@ -55,7 +55,7 @@ public class ItemHistoryAdapter extends BaseAdapter {
         } else {
             viewHolder = (ViewHolder) view.getTag();
         }
-        viewHolder.time.setText("订单日期:" + dates.get(position).getTime());
+        viewHolder.time.setText("订单日期:" + dates[position]);
         return view;
     }
 
